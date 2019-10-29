@@ -113,5 +113,3 @@ STATIC_URL = '/static/'
 PRODUCTION = False
 STAGING = False
 TESTING = False
-
-# LOGIN_REDIRECT_URL = '/'

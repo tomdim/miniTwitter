@@ -14,8 +14,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+
+from django.conf.urls import url, include
 from django.urls import path
 
+from mini_twitter.settings import DEBUG, INSTALLED_APPS
+
 urlpatterns = [
+    # admin
     path('admin/', admin.site.urls),
+
+    # auth
+    # url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
+    # url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
+
+    # mini twitter app
+    path('', include('mini_twitter_app.urls')),
 ]
+
+if DEBUG and 'debug_toolbar' in INSTALLED_APPS:
+    import debug_toolbar
+
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
