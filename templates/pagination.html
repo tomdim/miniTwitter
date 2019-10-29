@@ -1,0 +1,33 @@
+
+   {% load mini_twitter_app_filters %}
+
+    <ul class="pagination pull-right">
+
+        {# first page #}
+        {% if current > 2 %}
+            <li><a href="{{ request.get_full_path|get_page_url:1 }}">1</a></li>
+        {% endif %}
+
+        {# previous page #}
+        {% if current > 1 %}
+            {% with minus_one=current|add:"-1" %}
+                <li><a href="{{ request.get_full_path|get_page_url:minus_one }}">{{ current|add:"-1" }}</a></li>
+            {% endwith %}
+        {% endif %}
+
+        {# current page #}
+            <li class="active"><a href="{{ request.get_full_path|get_page_url:current }}">{{ current }}</a></li>
+
+        {# next page #}
+        {% if current < total %}
+            {% with plus_one=current|add:"1" %}
+                <li><a href="{{ request.get_full_path|get_page_url:plus_one }}">{{ current|add:"1" }}</a></li>
+            {% endwith %}
+        {% endif %}
+
+        {# last page #}
+        {% if current < total|add:"-1" %}
+            <li><a href="{{ request.get_full_path|get_page_url:total }}">{{ total }}</a></li>
+        {% endif %}
+
+    </ul>

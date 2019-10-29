@@ -65,6 +65,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+
+            'libraries':{
+                'mini_twitter_app_filters': 'mini_twitter_app.templatetags.filters',
+            },
         },
     },
 ]

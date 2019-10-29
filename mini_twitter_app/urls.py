@@ -5,5 +5,5 @@ from mini_twitter_app import views
 
 
 urlpatterns = [
-    url(r'^$', views.welcome, name='welcome'),
+    url(r'^$', views.explore, name='explore'),
 ]

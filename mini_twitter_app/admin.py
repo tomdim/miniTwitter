@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from mini_twitter_app.models import *
+
+
+admin.site.register(Profile)
+admin.site.register(UserConfig)
+admin.site.register(Tweet)

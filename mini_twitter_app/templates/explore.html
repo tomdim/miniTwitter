@@ -1,0 +1,11 @@
+{% include 'base.html' %}
+
+{% block content %}
+    {% for tweet in tweets %}
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+                {{ tweet.tweet }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
