@@ -1,0 +1,8 @@
+body {
+    font-family: monospace,monospace;
+}
+
+#main-navbar-ul li {
+    display: inline-block;
+}
+

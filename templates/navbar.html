@@ -1,0 +1,27 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="/static/img/navbar-logo.png" width="50" height="30" alt=""> mini twitter
+    </a>
+
+    <ul class="navbar-nav" id="main-navbar-ul">
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-globe"></i> Explore</a>
+        </li>
+    </ul>
+
+    {% if not request.user.is_authenticated %}
+        <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Log In</a>
+        <a class="nav-link" href="#"><i class="fas fa-user-plus"></i> Sign Up</a>
+
+    {% else %}
+
+        <a class="nav-link" href="#"><i class="fas fa-user"></i> {{ request.user }}</a>
+        <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+
+    {% endif %}
+
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
