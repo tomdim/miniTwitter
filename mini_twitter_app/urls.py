@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^$', views.explore, name='explore'),
 
     url(r'^signup/$', views.signup, name='signup'),
+
+    url(r'^tweet/$', views.tweet, name='tweet'),
 ]

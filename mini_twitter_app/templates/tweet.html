@@ -1,0 +1,14 @@
+{% if request.user.is_authenticated %}
+
+    <div class="card" style="margin-top: 50px">
+        <p>What's up?</p>
+        <form method="post" action="{% url 'tweet' %}">
+            {% csrf_token %}
+
+            <textarea name="tweet" id="tweet-input"></textarea>
+
+            <input type="submit" class="btn btn-primary" value="Tweet" id="button"/>
+        </form>
+    </div>
+
+{% endif %}

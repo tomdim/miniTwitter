@@ -3,6 +3,8 @@
 {% block title %}Explore{% endblock %}
 
 {% block content %}
+    {% include 'tweet.html' %}
+
     <div class="card" style="width: 100%; margin-top: 25px;">
         <ul class="list-group list-group-flush">
             {% for tweet in tweets %}

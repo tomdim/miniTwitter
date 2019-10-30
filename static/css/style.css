@@ -6,6 +6,16 @@ body {
     display: inline-block;
 }
 
+.nav-link {
+    color: rgba(255,255,255,.5);
+}
+    .nav-link:focus {
+        color: rgba(255,255,255,.5);
+    }
+    .nav-link:hover {
+        color: rgba(255,255,255,.75);
+    }
+
 .pagination {
     float: right;
     display:inline-block;
