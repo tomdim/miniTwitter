@@ -3,11 +3,15 @@
 {% block title %}Explore{% endblock %}
 
 {% block content %}
-    {% for tweet in tweets %}
-        <div class="row">
-            <div class="col-sm-offset-3 col-sm-6">
-                {{ tweet.tweet }}
-            </div>
-        </div>
-    {% endfor %}
+    <div class="card" style="width: 100%; margin-top: 25px;">
+        <ul class="list-group list-group-flush">
+            {% for tweet in tweets %}
+                <li class="list-group-item">
+                    <h5 class="card-title"><a href="#">@{{ tweet.user.username }}</a></h5>
+                    <p class="card-text">{{ tweet.tweet }}</p>
+                    tweeted {{ tweet.published|timesince }} - <a href="#">{{ tweet.replies.count }} replies</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

@@ -26,8 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # auth
-    # url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
-    # url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
+    url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
+    url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
 
     # mini twitter app
     path('', include('mini_twitter_app.urls')),

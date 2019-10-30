@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Tweet(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_tweets')
     tweet = models.TextField(blank=False, null=False)
     reply_to = models.ForeignKey('mini_twitter_app.Tweet', blank=True, null=True, on_delete=models.SET_NULL,
                                  related_name='replies')

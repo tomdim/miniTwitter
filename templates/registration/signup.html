@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="col-lg-push-2 col-md-push-3 col-lg-8 col-md-6">
+        <div class="card">
+            <div class="header">
+                <h4 class="title text-center">Sign Up</h4>
+            </div>
+            <div class="content">
+                <form method="post">
+                    {% csrf_token %}
+
+                    {% with centered=True %}
+                        {% include 'util/form-fields.html' %}
+                    {% endwith %}
+
+                    <button type="submit">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

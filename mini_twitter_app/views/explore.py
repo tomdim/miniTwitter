@@ -4,6 +4,12 @@ from mini_twitter_app.models import *
 
 
 def explore(request, page=1):
+    # get request data (GET)
+    data = request.GET
+    # get requested page
+    page = int(data.get('page', '1'))
+    # if no page is specified, return the first page
+    page = 1 if page < 1 else page
     # number of tweets per page
     page_size = 5
 

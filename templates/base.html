@@ -29,7 +29,7 @@
                 {% endblock %}
 
                 {% if not no_paginate %}
-                    {% include 'pagination.html' with current=pages.current total=pages.total %}
+                    {% include 'util/pagination.html' with current=pages.current total=pages.total %}
                 {% endif %}
 
             </div>
