@@ -15,16 +15,22 @@ def explore(request, page=1):
     page_size = 5
 
     # get all tweets ordered by publish date descending (newest to oldest)
-    tweets = Tweet.objects.all().order_by('-published')
+    tweets = Tweet.objects.all()
 
-    # paginate tweets
-    tweets = tweets[(page - 1) * page_size: page * page_size]
+    q = data.get('q', '').strip()
+    if q:
+        tweets = tweets.filter(tweet__icontains=q)
+
+    tweets = tweets.order_by('-published')
 
     # get the number of tweets -- slow on large number of tweets! (see reltuples)
     tweets_count = tweets.count()
 
     # calculate number of pages
     pages = int(tweets_count / page_size) + 1
+
+    # paginate tweets
+    tweets = tweets[(page - 1) * page_size: page * page_size]
 
     return render(request, 'explore.html', {
         'tweets': tweets,
@@ -33,4 +39,5 @@ def explore(request, page=1):
             'total': pages,
             'current': page,
         },
+        'q': q
     })

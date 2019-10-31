@@ -1,13 +1,17 @@
 {% if request.user.is_authenticated %}
 
     <div class="card" style="margin-top: 50px">
-        <p>What's up?</p>
-        <form method="post" action="{% url 'tweet' %}">
+        <form method="post" action="{% url 'tweet' %}" id="tweet-form">
             {% csrf_token %}
 
-            <textarea name="tweet" id="tweet-input"></textarea>
-
-            <input type="submit" class="btn btn-primary" value="Tweet" id="button"/>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <textarea name="tweet" id="tweet-input" placeholder="What's up?"></textarea>
+                </div>
+                <div class="col-md-5">
+                    <input type="submit" class="btn btn-primary" value="Tweet" id="button"/>
+                </div>
+            </div>
         </form>
     </div>
 

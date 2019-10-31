@@ -1,15 +1,30 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Explore{% endblock %}
 
 {% block content %}
+    <link href="{% static 'css/explore.css' %}?v=20191031.1" rel="stylesheet">
+
     {% include 'tweet.html' %}
 
-    <div class="card" style="width: 100%; margin-top: 25px;">
+    <h5 style="margin-top: 25px;""><b>{{ count }}</b> tweets</h5>
+    <div class="card" style="width: 100%;">
         <ul class="list-group list-group-flush">
             {% for tweet in tweets %}
                 <li class="list-group-item">
                     <h5 class="card-title"><a href="#">@{{ tweet.user.username }}</a></h5>
+
+                    {% if tweet.reply_to %}
+                        <i>Replied to
+                        <div class="card">
+                            <h6 class="card-title"><a href="#">@{{ tweet.reply_to.user.username }}</a></h6>
+                            <p class="card-text">{{ tweet.reply_to.tweet }}</p>
+                            tweeted {{ tweet.reply_to.published|timesince }}
+                        </div></i>
+                    {% endif %}
+
                     <p class="card-text">{{ tweet.tweet }}</p>
                     tweeted {{ tweet.published|timesince }} - <a href="#">{{ tweet.replies.count }} replies</a>
                 </li>
